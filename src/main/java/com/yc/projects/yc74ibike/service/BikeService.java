@@ -2,6 +2,8 @@ package com.yc.projects.yc74ibike.service;
 
 import com.yc.projects.yc74ibike.bean.Bike;
 
+import java.util.List;
+
 public interface BikeService {
 
     /**
@@ -21,5 +23,7 @@ public interface BikeService {
      * 新车上架:必须生成bid, 且根据bid生成二维码.
      */
     public Bike addNewBike(  Bike bike );
+
+    public List<Bike> findNearAll(Bike bike);
 
 }

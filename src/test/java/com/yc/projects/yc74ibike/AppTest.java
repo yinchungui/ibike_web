@@ -1,9 +1,11 @@
 package com.yc.projects.yc74ibike;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,15 @@ public class AppTest extends TestCase {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Test
+    public void testNearBikes(){
+        Bike b=new Bike();
+        b.setLatitude(28.189122);
+        b.setLongitude(112.943867);
+        List<Bike> list =bikeService.findNearAll(b);
+        System.out.println(list);
+    }
 
     @Test
     public void testMongoTemplate(){

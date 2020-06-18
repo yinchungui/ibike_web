@@ -19,6 +19,8 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;
 
+import java.util.List;
+
 // @RestController   ->   @Controller  +   @ResponseBody
 @Controller
 @Api(value="小辰出行单车信息操作接口",tags= {"单车信息","控制层"})
@@ -28,6 +30,15 @@ public class BikeController {
 
     @Autowired
     private BikeService bikeService;
+
+    @RequestMapping(value="/findNearAll",method= {RequestMethod.POST})
+    @ApiOperation(  value="查找最近的单车",notes="查找最近的10部单车")
+    public @ResponseBody JsonModel findNearAll( @ApiIgnore JsonModel jm,  @RequestBody Bike bike    ){
+        List<Bike> list =bikeService.findNearAll(bike);
+        jm.setCode(1);
+        jm.setObj(list);
+        return jm;
+    }
 
     /**
      * 扫码开锁
