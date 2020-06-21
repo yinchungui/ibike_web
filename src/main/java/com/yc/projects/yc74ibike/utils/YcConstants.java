@@ -9,11 +9,11 @@ public class YcConstants {
     /**
      * 腾讯云账户密钥对: secretId
      */
-    public static final String SMSSECREID="AKIDlIckRtGwNYYGkygcZGgrlOSFl1zZEvf8";
+    public static final String SMSSECREID="";
     /**
      * 腾讯云账户密钥对: secretKey
      */
-    public static final String SMSSECREKEY="UigN2RZPysXv2sSnqfbGekbpnlSsGNFX";
+    public static final String SMSSECREKEY="";
     /**
      * SmsSdkAppid
      */
