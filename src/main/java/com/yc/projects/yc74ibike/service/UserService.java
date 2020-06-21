@@ -1,6 +1,5 @@
 package com.yc.projects.yc74ibike.service;
 
-
 import com.yc.projects.yc74ibike.bean.User;
 
 public interface UserService {
@@ -10,5 +9,12 @@ public interface UserService {
     public void genVerifyCode(String nationCode, String phoneNum) throws Exception;
 
     public boolean verify(User user) ;
+
+    /**
+     * 押金充值
+     * @param user
+     * @return
+     */
+    public boolean deposit(User user);
 
 }

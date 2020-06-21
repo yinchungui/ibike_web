@@ -1,11 +1,14 @@
 package com.yc.projects.yc74ibike.utils;
 
-
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
+
+//导入可选配置类
 import com.tencentcloudapi.common.profile.ClientProfile;
 import com.tencentcloudapi.common.profile.HttpProfile;
+// 导入对应SMS模块的client
 import com.tencentcloudapi.sms.v20190711.SmsClient;
+// 导入要请求接口对应的request response类
 import com.tencentcloudapi.sms.v20190711.models.SendSmsRequest;
 import com.tencentcloudapi.sms.v20190711.models.SendSmsResponse;
 
@@ -116,7 +119,7 @@ public class SmsUtils {
             SendSmsResponse res = client.SendSms(req);
 
             // 输出json格式的字符串回包
-            System.out.println(SendSmsResponse.toJsonString(res));
+            //System.out.println(SendSmsResponse.toJsonString(res));
             return SendSmsResponse.toJsonString(res);
 
             // 也可以取出单个值，你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
@@ -126,6 +129,4 @@ public class SmsUtils {
         }
         return null;
     }
-
 }
-
