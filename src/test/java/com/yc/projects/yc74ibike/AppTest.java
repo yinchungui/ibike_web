@@ -6,10 +6,12 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
+import com.yc.projects.yc74ibike.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -35,6 +37,22 @@ public class AppTest extends TestCase {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Autowired
+    private UserService userService;
+
+    @Test
+    public void testUserService() throws Exception {
+        userService.genVerifyCode("86", "17674106979");
+    }
+
+    @Test
+    public void testRedisTemplate() {
+        System.out.println(    redisTemplate);
+    }
 
     @Test
     public void testNearBikes(){

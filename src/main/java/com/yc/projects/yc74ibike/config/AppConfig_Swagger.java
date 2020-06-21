@@ -14,7 +14,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Configuration
+//@Configuration
 @EnableSwagger2    //启用swaggerr 注解解析器
 public class AppConfig_Swagger {
     // 是否开启swagger，正式环境一般是需要关闭的，可根据springboot的多环境配置进行设置

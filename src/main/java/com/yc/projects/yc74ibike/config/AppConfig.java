@@ -6,6 +6,9 @@ import org.springframework.context.annotation.*;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -18,6 +21,36 @@ import java.util.logging.Logger;
 @EnableTransactionManagement
 public class AppConfig {
     private Logger log= Logger.getLogger(String.valueOf(AppConfig.class));
+
+    @Bean
+    public RedisTemplate redsiTemplate() {
+        JedisConnectionFactory conn = new JedisConnectionFactory();
+        conn.setDatabase(0);
+        conn.setHostName("192.168.76.200");
+        conn.setPort(6379);
+        conn.setPassword("");
+        conn.setUsePool(true);
+        conn.afterPropertiesSet();
+        RedisTemplate<byte[], byte[]> template = new RedisTemplate<>();
+        template.setConnectionFactory(conn);
+        template.afterPropertiesSet();
+        return template;
+    }
+
+    @Bean
+    public StringRedisTemplate stringRedisTemplate() {
+        JedisConnectionFactory conn = new JedisConnectionFactory();
+        conn.setDatabase(0);
+        conn.setHostName("192.168.76.200");
+        conn.setPort(6379);
+        conn.setPassword("");
+        conn.setUsePool(true);
+        conn.afterPropertiesSet();
+        StringRedisTemplate template = new StringRedisTemplate();
+        template.setConnectionFactory(conn);
+        template.afterPropertiesSet();
+        return template;
+    }
 
     @Bean    //  MongoTemplate由spring 托管
     @Primary
