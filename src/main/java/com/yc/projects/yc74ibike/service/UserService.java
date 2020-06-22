@@ -17,4 +17,9 @@ public interface UserService {
      */
     public boolean deposit(User user);
 
+    /**完成身份验证 */
+    public boolean identity(User user);
+
+
+
 }
