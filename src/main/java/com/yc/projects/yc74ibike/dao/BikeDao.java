@@ -4,6 +4,8 @@ import com.yc.projects.yc74ibike.bean.Bike;
 
 /**
  * 单车的操作
+ * @author 张影 QQ:1069595532  WX:zycqzrx1
+ * @date Jun 13, 2020
  */
 public interface BikeDao {
 
@@ -22,5 +24,5 @@ public interface BikeDao {
     /**
      * 根据id查车
      */
-    public Bike findBike(  Long bid);
+    public Bike findBike(  String bid);
 }
